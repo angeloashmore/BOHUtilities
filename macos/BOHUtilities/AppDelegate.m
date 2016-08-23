@@ -124,6 +124,10 @@
     NSMenuItem *containerItem = [[NSMenuItem alloc] init];
     NSMenu *rootMenu = [[NSMenu alloc] initWithTitle:@"" ];
     [containerItem setSubmenu:rootMenu];
+    [rootMenu addItemWithTitle:@"Hide BOHUtilities" action:@selector(hide:) keyEquivalent:@"h"];
+    [rootMenu addItemWithTitle:@"Hide Others" action:@selector(hideOtherApplications:) keyEquivalent:@"h"];
+    [rootMenu addItemWithTitle:@"Show All" action:@selector(unhideAllApplications:) keyEquivalent:@""];
+    [rootMenu addItem:[NSMenuItem separatorItem]];
     [rootMenu addItemWithTitle:@"Quit BOHUtilities" action:@selector(terminate:) keyEquivalent:@"q"];
     [[NSApp mainMenu] addItem:containerItem];
 }
