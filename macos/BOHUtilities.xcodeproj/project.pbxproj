@@ -504,7 +504,7 @@
 					"$(SRCROOT)/../node_modules/react-native-macos/React/**",
 				);
 				INFOPLIST_FILE = BOHUtilities/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -523,7 +523,7 @@
 					"$(SRCROOT)/../node_modules/react-native-macos/React/**",
 				);
 				INFOPLIST_FILE = BOHUtilities/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
