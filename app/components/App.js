@@ -1,4 +1,3 @@
-import fs from 'fs'
 import React from 'react'
 import { StyleSheet, View } from 'react-native-macos'
 
