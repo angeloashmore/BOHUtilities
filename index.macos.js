@@ -11,7 +11,7 @@ const { AppRegistry } = ReactNative
 
 const store = configureStore()
 
-const memoryHistory = createMemoryHistory()
+const memoryHistory = createMemoryHistory('/restock-report')
 const history = syncHistoryWithStore(memoryHistory, store)
 
 const BOHUtilities = () => (
