@@ -6,12 +6,12 @@ import DetailPanel from '../components/DetailPanel'
 
 const dataBlob = {
   'Tasks': [
-    { title: 'Restock Report', route: '/restock-report' },
-    { title: 'In-Transit Expected', route: '/in-transit-expected' },
     { title: 'Text Label', route: '/text-label' },
+    { title: 'In-Transit Expected', route: '/in-transit-expected' },
+    { title: 'Restock Report', route: '/restock-report' }
   ],
   'Advanced Tasks': [
-    { title: 'Update Categories', route: '/update-categories' },
+    { title: 'Update Categories', route: '/update-categories' }
   ]
 }
 

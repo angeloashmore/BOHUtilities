@@ -24,7 +24,7 @@
 
         [[self window] setTitle:@"BOHUtilities"];
         [[self window] setTitleVisibility:NSWindowTitleHidden];
-        [[self window] setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameVibrantLight ]];
+        [[self window] setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameAqua]];
 
         [windowController setShouldCascadeWindows:NO];
         [windowController setWindowFrameAutosaveName:@"BOHUtilities"];

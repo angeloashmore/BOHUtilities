@@ -1,51 +1,35 @@
 import typeToReducer from 'type-to-reducer'
 import { createAction } from 'redux-actions'
-import Immutable from 'immutable'
 
-const LOAD = 'BOHUtilities/restockReport/LOAD'
+import { ProductTypes } from '../constants'
+
+const SET_DOCUMENT_PATH = 'BOHUtilities/restockReport/SET_DOCUMENT_PATH'
+const SET_PRODUCT_TYPE = 'BOHUtilities/restockReport/SET_PRODUCT_TYPE'
+const SET_SHOW_UNAVAILABLE = 'BOHUtilities/restockReport/SET_SHOW_UNAVAILABLE'
 
 const initialState = {
-  error: null,
-  isPending: false,
-  isRejected: false,
-  items: Immutable.OrderedMap()
+  documentPath: null,
+  productType: ProductTypes.Accessories,
+  showUnavailable: true
 }
 
 export default typeToReducer({
-  [LOAD]: {
-    PENDING: () => ({
-      ...initialState,
-      isPending: true
-    }),
-
-    FULFILLED: (_state, { payload: collections }) => {
-      const keyValuePairs = collections.map((x) => [x.id, x])
-      const items = Immutable.OrderedMap(keyValuePairs)
-
-      return {
-        ...initialState,
-        items
-      }
-    },
-
-    REJECTED: ({ items }, { payload: error }) => ({
-      ...initialState,
-      error,
-      isRejected: true,
-      items
-    })
-  }
+  [SET_DOCUMENT_PATH]: (state, { payload }) => ({
+    ...state,
+    documentPath: payload
+  }),
+  [SET_PRODUCT_TYPE]: (state, { payload }) => ({
+    ...state,
+    productType: payload
+  }),
+  [SET_SHOW_UNAVAILABLE]: (state, { payload }) => ({
+    ...state,
+    showUnavailable: Boolean(payload)
+  })
 }, initialState)
 
-export const load = createAction(LOAD, async () => {
-  const releasesURL = 'https://api.github.com/repos/angeloashmore/boh-labels-db/releases/latest'
-  const releasesData = await fetch(releasesURL)
-  const releases = await releasesData.json()
+export const setDocumentPath = createAction(SET_DOCUMENT_PATH)
 
-  const asset = releases.assets.find((asset) => asset.name === 'collections.json')
+export const setProductType = createAction(SET_PRODUCT_TYPE)
 
-  const result = await fetch(asset.browser_download_url)
-  const json = await result.json()
-
-  return json
-})
+export const setShowUnavailable = createAction(SET_SHOW_UNAVAILABLE)
